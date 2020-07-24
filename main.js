@@ -6,25 +6,36 @@ const ul = document.querySelector("ul");
 const input = document.querySelector("input");
 const enterBtn = document.querySelector(".enter");
 
-function onAdd() {
-  const text = input.value;
-  if (text === "") input.focus();
-  const item = createItem(text);
-  ul.appendChild(item);
-  input.value = "";
-  input.focus();
-}
-
-function createItem(text) {
-  const li = document.createElement("li");
-  li.innerHTML = text;
-  return li;
-}
-
 input.addEventListener("keypress", (event) => {
   if (event.key === "Enter") onAdd();
 });
 
 enterBtn.addEventListener("click", (event) => {
   onAdd();
+});
+
+function onAdd() {
+  const text = input.value;
+  if (text === "") {
+    input.focus();
+    return;
+  }
+  const item = createItem(text);
+  ul.appendChild(item);
+  input.value = "";
+  input.focus();
+}
+
+let id = 0;
+function createItem(text) {
+  const li = document.createElement("li");
+  li.innerHTML = `${text} <i class="fas fa-trash-alt" data-id=${id}></i>`;
+  id++;
+  return li;
+}
+
+ul.addEventListener("click", (event) => {
+  const id = event.target.dataset.id;
+  const li = document.querySelectorAll("li");
+  if (li[id]) li[id].remove();
 });

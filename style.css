@@ -30,6 +30,7 @@ ul {
 }
 
 li {
+  position: relative;
   padding-bottom: 8px;
   margin-bottom: 3px;
   margin-right: 20px;
@@ -58,4 +59,12 @@ input {
   background-color: greenyellow;
   border: none;
   color: grey;
+}
+
+.fas {
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
 }
