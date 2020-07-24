@@ -6,14 +6,6 @@ const ul = document.querySelector("ul");
 const input = document.querySelector("input");
 const enterBtn = document.querySelector(".enter");
 
-input.addEventListener("keypress", (event) => {
-  if (event.key === "Enter") onAdd();
-});
-
-enterBtn.addEventListener("click", (event) => {
-  onAdd();
-});
-
 function onAdd() {
   const text = input.value;
   if (text === "") {
@@ -28,14 +20,26 @@ function onAdd() {
 
 let id = 0;
 function createItem(text) {
-  const li = document.createElement("li");
-  li.innerHTML = `${text} <i class="fas fa-trash-alt" data-id=${id}></i>`;
+  const itemRow = document.createElement("li");
+  itemRow.setAttribute("class", "item__row");
+  itemRow.setAttribute("data-id", id);
+  itemRow.innerHTML = `${text} <i class="fas fa-trash-alt" data-id=${id}></i>`;
   id++;
-  return li;
+  return itemRow;
 }
+
+enterBtn.addEventListener("click", () => {
+  onAdd();
+});
+
+input.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") onAdd();
+});
 
 ul.addEventListener("click", (event) => {
   const id = event.target.dataset.id;
-  const li = document.querySelectorAll("li");
-  if (li[id]) li[id].remove();
+  if (id) {
+    const toBeDeleted = document.querySelector(`.item__row[data-id="${id}"]`);
+    toBeDeleted.remove();
+  }
 });
