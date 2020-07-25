@@ -10,7 +10,7 @@ function showMenu(elem) {
   container.setAttribute("id", "show");
   if (openMenu) {
     openMenu.removeAttribute("id");
-    if (openMenu === elem) return;
+    //if (openMenu === elem) return;
   }
 }
 
