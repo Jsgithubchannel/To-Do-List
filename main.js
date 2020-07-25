@@ -1,14 +1,39 @@
-// Input에 활동 작성
-//키보드 엔터키 or 엔터 버튼 눌려서
-//데이터 스토리지로 이동
-
 const ul = document.querySelector("ul");
 const input = document.querySelector("input");
 const enterBtn = document.querySelector(".enter");
 
 const LIST_LS = "lists";
 
+function filterFn(toDo) {
+  return toDo.id === 1;
+}
+
 let lists = [];
+
+function saveStorage() {
+  localStorage.setItem(LIST_LS, JSON.stringify(lists));
+}
+
+function deleteStorage(event) {
+  const trashBtn = event.target;
+  const li = trashBtn.parentNode;
+  ul.removeChild(li);
+  const cleanStorage = lists.filter((toDo) => {
+    return toDo.id !== parseInt(li.id);
+  });
+  lists = cleanStorage;
+  saveStorage();
+}
+
+function loadStorage() {
+  const loadStorage = localStorage.getItem(LIST_LS);
+  if (loadStorage !== null) {
+    const parsedList = JSON.parse(loadStorage);
+    parsedList.forEach((list) => {
+      createItem(list.text);
+    });
+  }
+}
 
 function onAdd() {
   const text = input.value;
@@ -21,39 +46,29 @@ function onAdd() {
   input.focus();
 }
 
-function saveStorage() {
-  localStorage.setItem(LIST_LS, JSON.stringify(lists));
-}
-
-let id = 0;
 function createItem(text) {
   const itemRow = document.createElement("li");
+  const newId = lists.length + 1;
   itemRow.setAttribute("class", "item__row");
-  itemRow.setAttribute("data-id", id);
-  itemRow.innerHTML = `${text} <i class="fas fa-trash-alt" data-id=${id}></i>`;
-  id++;
+  itemRow.innerHTML = `${text} <i class="fas fa-trash-alt" data-id=${itemRow.id}></i>`;
+
   ul.appendChild(itemRow);
+  itemRow.id = newId;
+  const delBtn = itemRow.querySelector(".fa-trash-alt");
+  delBtn.addEventListener("click", deleteStorage);
 
   const listObj = {
     text: text,
-    id: id,
+    id: newId,
   };
+
   lists.push(listObj);
   saveStorage();
+
   return itemRow;
 }
 
-function loadList() {
-  const loadList = localStorage.getItem(LIST_LS);
-  if (loadList !== null) {
-    const parsedList = JSON.parse(loadList);
-    parsedList.forEach((list) => {
-      createItem(list.text);
-    });
-  }
-}
-
-loadList();
+loadStorage();
 
 enterBtn.addEventListener("click", () => {
   onAdd();
@@ -61,12 +76,4 @@ enterBtn.addEventListener("click", () => {
 
 input.addEventListener("keypress", (event) => {
   if (event.key === "Enter") onAdd();
-});
-
-ul.addEventListener("click", (event) => {
-  const id = event.target.dataset.id;
-  if (id) {
-    const toBeDeleted = document.querySelector(`.item__row[data-id="${id}"]`);
-    toBeDeleted.remove();
-  }
 });
