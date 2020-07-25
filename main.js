@@ -1,8 +1,18 @@
 const ul = document.querySelector("ul");
 const input = document.querySelector("input");
 const enterBtn = document.querySelector(".enter");
+const container = document.querySelector(".container");
 
 const LIST_LS = "lists";
+
+function showMenu(elem) {
+  const openMenu = document.querySelector("#show");
+  container.setAttribute("id", "show");
+  if (openMenu) {
+    openMenu.removeAttribute("id");
+    if (openMenu === elem) return;
+  }
+}
 
 function filterFn(toDo) {
   return toDo.id === 1;
