@@ -6,16 +6,23 @@ const ul = document.querySelector("ul");
 const input = document.querySelector("input");
 const enterBtn = document.querySelector(".enter");
 
+const LIST_LS = "lists";
+
+let lists = [];
+
 function onAdd() {
   const text = input.value;
   if (text === "") {
     input.focus();
     return;
   }
-  const item = createItem(text);
-  ul.appendChild(item);
+  createItem(text);
   input.value = "";
   input.focus();
+}
+
+function saveStorage() {
+  localStorage.setItem(LIST_LS, JSON.stringify(lists));
 }
 
 let id = 0;
@@ -25,8 +32,28 @@ function createItem(text) {
   itemRow.setAttribute("data-id", id);
   itemRow.innerHTML = `${text} <i class="fas fa-trash-alt" data-id=${id}></i>`;
   id++;
+  ul.appendChild(itemRow);
+
+  const listObj = {
+    text: text,
+    id: id,
+  };
+  lists.push(listObj);
+  saveStorage();
   return itemRow;
 }
+
+function loadList() {
+  const loadList = localStorage.getItem(LIST_LS);
+  if (loadList !== null) {
+    const parsedList = JSON.parse(loadList);
+    parsedList.forEach((list) => {
+      createItem(list.text);
+    });
+  }
+}
+
+loadList();
 
 enterBtn.addEventListener("click", () => {
   onAdd();
