@@ -50,10 +50,11 @@ function onAdd() {
 
 function createItem(text) {
   const itemRow = document.createElement("li");
-
   const newId = lists.length + 1;
   itemRow.setAttribute("class", "item__row");
-  itemRow.innerHTML = `${text} <i class="fas fa-trash-alt" data-id=${itemRow.id}></i>`;
+  itemRow.innerHTML = `
+  <span class="toDo-span">${text}</span> 
+  <i class="fas fa-trash-alt" data-id=${itemRow.id}></i>`;
 
   ul.appendChild(itemRow);
   itemRow.id = newId;
