@@ -4,23 +4,59 @@
 
 body {
   background-color: #ecf0f1;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.box {
+  margin-top: 10%;
 }
 
 .clock {
-  font-size: 56px;
+  font-weight: bolder;
+  font-size: 64px;
   text-align: center;
   margin: 50px 0;
+  cursor: default;
+}
+
+.name_form,
+.greetings {
+  display: none;
+}
+
+.name_form {
+  width: 20%;
+  height: 15px;
+  margin: auto;
+  outline: none;
+  margin-bottom: 60px;
+}
+
+.name_input {
+  text-align: center;
+}
+
+.showing {
+  display: block;
+}
+
+.greetings {
+  text-align: center;
+  font-size: 40px;
+  color: #474545;
 }
 
 .show__toDoList {
   display: block;
-  width: 20%;
+  width: 15%;
   height: 30px;
   margin: auto;
   outline: none;
   border: 1px solid gainsboro;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .show__toDoList:hover {
@@ -28,7 +64,7 @@ body {
 }
 
 .container {
-  width: 50%;
+  width: 48%;
   height: 100%;
   margin: auto;
   border: 1px solid green;
@@ -49,6 +85,7 @@ h1 {
   font-size: 42px;
   color: #98e3a1;
   border-bottom: 1px dotted #5e7361;
+  cursor: default;
 }
 
 ul {
@@ -58,10 +95,11 @@ ul {
 }
 
 li {
+  font-size: 18px;
   position: relative;
   padding-bottom: 8px;
   margin-bottom: 3px;
-  margin-right: 20px;
+  margin-right: 50px;
   border-bottom: 1px solid grey;
 }
 
@@ -87,12 +125,13 @@ input {
   background-color: greenyellow;
   border: none;
   color: grey;
+  cursor: pointer;
 }
 
 .fas {
   font-size: 20px;
   position: absolute;
-  right: 10px;
+  right: 0;
   top: 10px;
   cursor: pointer;
   transition: transform 200ms ease-in;

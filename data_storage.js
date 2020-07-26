@@ -1,5 +1,6 @@
 const ul = document.querySelector("ul");
-const input = document.querySelector("input");
+const footer = document.querySelector(".footer");
+const input = footer.querySelector("input");
 const enterBtn = document.querySelector(".enter");
 const container = document.querySelector(".container");
 
@@ -49,6 +50,7 @@ function onAdd() {
 
 function createItem(text) {
   const itemRow = document.createElement("li");
+
   const newId = lists.length + 1;
   itemRow.setAttribute("class", "item__row");
   itemRow.innerHTML = `${text} <i class="fas fa-trash-alt" data-id=${itemRow.id}></i>`;
