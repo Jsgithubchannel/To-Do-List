@@ -16,29 +16,25 @@
     <script src="data_storage.js" defer></script>
     <script src="name.js" defer></script>
     <script src="bg.js" defer></script>
+    <script src="weather.js" defer></script>
   </head>
   <body>
-    <section class="box">
-      <div class="clock"></div>
-      <form class="name_form">
-        <input
-          type="text"
-          class="name_input"
-          placeholder="What is your name?"
-        />
-      </form>
-      <h4 class="greetings"></h4>
-      <button onclick="showMenu(container)" class="show__toDoList">
-        TO-DO LIST
-      </button>
-      <section class="container">
-        <h1>TO DO LIST</h1>
-        <ul></ul>
-        <div class="footer">
-          <input type="text" placeholder="Title..." />
-          <button class="enter">Enter</button>
-        </div>
-      </section>
+    <div class="clock"></div>
+    <span class="weather"></span>
+    <form class="name_form">
+      <input type="text" class="name_input" placeholder="What is your name?" />
+    </form>
+    <h4 class="greetings"></h4>
+    <button onclick="showMenu(container)" class="show__toDoList">
+      TO-DO LIST
+    </button>
+    <section class="container">
+      <h1>TO DO LIST</h1>
+      <ul></ul>
+      <div class="footer">
+        <input type="text" placeholder="Title..." />
+        <button class="enter">Enter</button>
+      </div>
     </section>
   </body>
 </html>

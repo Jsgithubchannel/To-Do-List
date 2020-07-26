@@ -29,15 +29,11 @@ body {
   animation: fadeIn 0.5s linear;
 }
 
-.box {
-  margin-top: 10%;
-}
-
 .clock {
   font-weight: bolder;
   font-size: 64px;
   text-align: center;
-  margin: 50px 0;
+  margin: 50px 0 20px;
   cursor: default;
 }
 
@@ -64,8 +60,8 @@ body {
 
 .greetings {
   text-align: center;
-  font-size: 50px;
-  color: #474545;
+  font-size: 60px;
+  color: #2e4756;
 }
 
 .show__toDoList {
@@ -89,7 +85,7 @@ body {
   height: 100%;
   margin: auto;
   border: 1px solid green;
-  background-color: whitesmoke;
+  background-color: rgba(245, 245, 245, 0.9);
   opacity: 0;
   border-radius: 15px 15px 0 0;
   transition: all 300ms ease-in;
@@ -161,4 +157,13 @@ input {
 .fas:hover {
   color: red;
   transform: scale(1.1);
+}
+
+.weather {
+  font-size: 30px;
+  font-weight: bold;
+  color: #1e1e24;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
