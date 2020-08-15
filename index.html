@@ -12,23 +12,24 @@
       integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q"
       crossorigin="anonymous"
     />
-    <script src="main.js" defer></script>
-    <script src="clock.js" defer></script>
-    <script src="data_storage.js" defer></script>
-    <script src="name.js" defer></script>
-    <script src="bg.js" defer></script>
-    <script src="weather.js" defer></script>
   </head>
   <body>
-    <div class="clock"></div>
-    <span class="weather"></span>
-    <form class="name_form">
-      <input type="text" class="name_input" placeholder="What is your name?" />
-    </form>
-    <h4 class="greetings"></h4>
-    <button onclick="showMenu(container)" class="show__toDoList">
-      TO-DO LIST
-    </button>
+    <section class="main">
+      <div class="clock"></div>
+      <span class="weather"></span>
+      <form class="name_form">
+        <input
+          type="text"
+          class="name_input"
+          placeholder="What is your name?"
+        />
+      </form>
+
+      <h4 class="greetings"></h4>
+      <button onclick="showMenu(container)" class="show__toDoList">
+        TO-DO LIST
+      </button>
+    </section>
     <section class="container">
       <h1>TO DO LIST</h1>
       <ul></ul>
@@ -37,5 +38,11 @@
         <button class="enter">Enter</button>
       </div>
     </section>
+    <script src="main.js"></script>
+    <script src="clock.js"></script>
+    <script src="data_storage.js"></script>
+    <script src="name.js"></script>
+    <script src="bg.js"></script>
+    <script src="weather.js"></script>
   </body>
 </html>
