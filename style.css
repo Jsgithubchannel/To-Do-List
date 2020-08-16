@@ -39,7 +39,6 @@ body {
   font-weight: bolder;
   font-size: 100px;
   text-align: center;
-  /* margin: 50px 0 20px; */
   cursor: default;
   color: white;
 }
@@ -90,7 +89,7 @@ body {
 }
 
 .container {
-  width: 40%;
+  width: 50%;
   height: 100%;
   margin: auto;
   border: 1px solid green;
@@ -120,7 +119,6 @@ ul {
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
 li {
@@ -178,7 +176,7 @@ input {
 
 @media only screen and (max-width: 1150px) {
   li {
-    margin: 0 20% 10px 0;
+    margin: 0 10% 10px 0;
   }
   .enter {
     font-size: 10px;
@@ -187,12 +185,16 @@ input {
 
 @media only screen and (max-width: 700px) {
   li {
-    margin: 0 30% 10px 0;
+    margin: 0 20% 10px 0;
   }
   .enter {
     color: transparent;
   }
   .show__toDoList {
     width: 20%;
+  }
+
+  h1 {
+    font-size: 35px;
   }
 }
