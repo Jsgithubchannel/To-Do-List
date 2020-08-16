@@ -13,7 +13,7 @@ function getWeather(lat, lng) {
     .then(function (json) {
       const temperature = json.main.temp;
       const place = json.name;
-      weather.innerText = `${temperature} @ ${place}`;
+      weather.innerText = `${temperature} °C ${place}`;
     });
 }
 
@@ -32,7 +32,7 @@ function handleGeoSuccess(position) {
   getWeather(latitude, longitude);
 }
 
-function handleGeoError(position) {
+function handleGeoError() {
   console.log("can't access geo location");
 }
 
